@@ -1,9 +1,15 @@
 import {Button, Col, Divider, Row, Typography} from 'antd';
 import {CloseCircleOutlined, RightOutlined} from '@ant-design/icons';
 
+/* Importaciones propias */
+import {useUiMenu} from '../hooks/useUiMenu';
+
 const {Text, Title} = Typography;
 
 export const Desk = () => {
+    /* Hook para el menú */
+    useUiMenu(false);
+
     const exit = () => {
         console.log('Salir');
     }

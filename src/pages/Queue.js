@@ -1,5 +1,8 @@
 import {Card, Col, Divider, List, Row, Tag, Typography} from 'antd';
 
+/* Importaciones propias */
+import {useUiMenu} from '../hooks/useUiMenu';
+
 const {Text, Title} = Typography;
 
 const data = [
@@ -41,6 +44,9 @@ const data = [
 ];
 
 export const Queue = () => {
+    /* Hook para el menú */
+    useUiMenu(true);
+
     return (
         <>
             <Title lavel={1}>Atendiendo al cliente</Title>

@@ -2,9 +2,15 @@ import {Button, Divider, Form, Input, InputNumber, Typography} from 'antd';
 import {SaveOutlined} from '@ant-design/icons';
 import {useHistory} from 'react-router-dom';
 
+/* Importaciones propias */
+import {useUiMenu} from '../hooks/useUiMenu';
+
 const {Title, Text} = Typography;
 
 export const Enter = () => {
+    /* Hook para el menú */
+    useUiMenu(false);
+
     const history = useHistory();
 
     const onFinish = (values) => {
