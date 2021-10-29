@@ -2,13 +2,13 @@ import {Button, Col, Row, Typography} from 'antd';
 import {DownloadOutlined} from '@ant-design/icons';
 
 /* Importaciones propias */
-import {useUiMenu} from '../hooks/useUiMenu';
+// import {useUiMenu} from '../hooks/useUiMenu';
 
 const {Title, Text} = Typography;
 
 export const CreateTicket = () => {
     /* Hook para el menú */
-    useUiMenu(true);
+    // useUiMenu(true);
 
     const newTicket = () => {
         console.log('New Tickewt')

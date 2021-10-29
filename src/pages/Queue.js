@@ -1,7 +1,7 @@
 import {Card, Col, Divider, List, Row, Tag, Typography} from 'antd';
 
 /* Importaciones propias */
-import {useUiMenu} from '../hooks/useUiMenu';
+// import {useUiMenu} from '../hooks/useUiMenu';
 
 const {Text, Title} = Typography;
 
@@ -45,7 +45,7 @@ const data = [
 
 export const Queue = () => {
     /* Hook para el menú */
-    useUiMenu(true);
+    // useUiMenu(true);
 
     return (
         <>

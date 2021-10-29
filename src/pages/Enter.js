@@ -1,26 +1,39 @@
+import {useState} from 'react';
 import {Button, Divider, Form, Input, InputNumber, Typography} from 'antd';
 import {SaveOutlined} from '@ant-design/icons';
-import {useHistory} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 
 /* Importaciones propias */
-import {useUiMenu} from '../hooks/useUiMenu';
+// import {useUiMenu} from '../hooks/useUiMenu';
+import {getUserStorage} from '../helpers/get-user-storage';
 
 const {Title, Text} = Typography;
 
 export const Enter = () => {
+    /* Obtener agente del localStorage */
+    const [user] = useState(getUserStorage());
+    // console.log(user);
+
     /* Hook para el menú */
-    useUiMenu(false);
+    // useUiMenu(false);
 
     const history = useHistory();
 
-    const onFinish = (values) => {
-        console.log('Success:', values);
+    const onFinish = ({agent, desk}) => {
+        // console.log('Success:', {agent, desk});
+
+        /* Guardar usuario en localStorage */
+        localStorage.setItem('agent', agent);
+        localStorage.setItem('desk', desk);
+
         history.push('/escritorio');
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    if (user.agent && user.desk) return <Redirect to="/escritorio"/>
 
     return (
         <>
