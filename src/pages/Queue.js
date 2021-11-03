@@ -4,6 +4,7 @@ import {Card, Col, Divider, List, Row, Tag, Typography} from 'antd';
 /* Importaciones propias */
 // import {useUiMenu} from '../hooks/useUiMenu';
 import {SocketContext} from '../context/SocketContext';
+import {getLastTickets} from '../helpers/get-last-tickets';
 
 const {Text, Title} = Typography;
 
@@ -14,6 +15,11 @@ export const Queue = () => {
     const {socket} = useContext(SocketContext);
 
     const [tickets, setTickets] = useState([]);
+
+    /* Cargar los últimos 13 tickets al cargar el componente */
+    useEffect(() => {
+        getLastTickets().then(lastTickets => setTickets(lastTickets));
+    }, []);
 
     /* Escuchar los últimos 13 tickets asignados */
     useEffect(() => {
